@@ -1,7 +1,6 @@
 package mocks
 
 import (
-	"gorm.io/datatypes"
 	"testEffectiveMobile/internal/models"
 	"time"
 )
@@ -17,7 +16,7 @@ func (a *APIClientMock) SongEnrichment(name, group string) (*models.Song, error)
 	return &models.Song{
 		Group:       group,
 		Song:        name,
-		ReleaseDate: datatypes.Date(time.Now()),
+		ReleaseDate: time.Now().Format(time.DateOnly),
 		Text:        "first verse\n\nsecond verse\n\nthird verse",
 		Link:        "test",
 	}, nil

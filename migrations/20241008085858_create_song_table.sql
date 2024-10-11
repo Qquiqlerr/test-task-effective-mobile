@@ -4,7 +4,7 @@ CREATE TABLE songs (
     id SERIAL PRIMARY KEY,
     "group" VARCHAR(255) NOT NULL,
     song VARCHAR(255) NOT NULL,
-    release_date DATE NOT NULL,
+    release_date varchar(10) NOT NULL,
     text TEXT NOT NULL,
     link TEXT NOT NULL
 );
@@ -12,5 +12,5 @@ CREATE TABLE songs (
 
 -- +goose Down
 -- +goose StatementBegin
-DROP TABLE song;
+DROP TABLE songs;
 -- +goose StatementEnd

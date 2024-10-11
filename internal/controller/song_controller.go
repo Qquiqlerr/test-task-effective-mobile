@@ -217,6 +217,11 @@ func (c *SongController) UpdateSong(w http.ResponseWriter, r *http.Request) {
 			render.JSON(w, r, map[string]string{"error": "song not found"})
 			return
 		}
+		if err.Error() == "bad date format" {
+			render.Status(r, http.StatusBadRequest)
+			render.JSON(w, r, map[string]string{"error": err.Error()})
+			return
+		}
 		render.Status(r, http.StatusInternalServerError)
 		render.JSON(w, r, map[string]string{"error": "internal server error"})
 		return

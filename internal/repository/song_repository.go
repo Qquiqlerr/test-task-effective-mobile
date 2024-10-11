@@ -1,11 +1,13 @@
 package repository
 
 import (
+	"errors"
 	"fmt"
 	"gorm.io/gorm"
 	"log/slog"
 	"testEffectiveMobile/internal/models"
 	"testEffectiveMobile/internal/service"
+	"time"
 )
 
 type songRepositoryImpl struct {
@@ -93,6 +95,10 @@ func (s *songRepositoryImpl) UpdateSong(song *models.Song) error {
 		slog.String("op", op),
 		slog.Any("song_id", song.ID),
 	)
+	if _, err := time.Parse(time.DateOnly, song.ReleaseDate); song.ReleaseDate != "" && err != nil {
+		log.Debug("failed to parse date", slog.String("err", err.Error()))
+		return errors.New("bad date format")
+	}
 	tx := s.DB.Model(&models.Song{}).Where("id = ?", song.ID).Updates(song)
 	if tx.Error != nil {
 		log.Warn("failed to update song", slog.String("err", tx.Error.Error()))
