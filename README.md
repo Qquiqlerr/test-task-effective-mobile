@@ -123,7 +123,7 @@ make clean # Очистка бинарников и документации
 
 ## Контакты
 Автор: Алексей Метлушко
-- [Telegram](https://t.me/Qquiqlerr)
+- [Telegram](https://t.me/sslowerr)
 - [Email](mailto:leha.metlushko@bk.ru)
 
 По любым вопросам связанным с проектом, пожалуйста, свяжитесь со мной.
