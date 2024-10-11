@@ -17,7 +17,7 @@
 
 	•	Backend: Go
 	•	База данных: PostgreSQL
-	•	Тестовая база данных: Docker Compose
+	•	Тестовая база данных может быть развернута с помощью Docker Compose
 	•	Миграции базы данных: Goose
 	•	Документация API: Swagger
 	•	Логирование: slog
